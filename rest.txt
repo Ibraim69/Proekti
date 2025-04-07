@@ -1,0 +1,84 @@
+1.	REST означава Representational State Transfer и представлява набор от архитектурни принципи за изграждане на уеб услуги. Основните принципи на REST API са:
+Архитектура клиент-сървър: В REST API клиентът и сървърът са разделени и комуникират помежду си чрез HTTP или HTTPS протоколи. Клиентът е отговорен за изпращането на заявки, а сървърът е отговорен за отговора на тези заявки
+Липса на състояние: REST API е без състояние, което означава, че всяка заявка съдържа цялата информация, изисквана от сървъра за изпълнение на заявката. Сървърът не съхранява информация за предишни заявки или сесии на клиента. Всяка заявка е самостоятелна.
+Единен интерфейс: REST API използва единен интерфейс за комуникация между клиента и сървъра. Този интерфейс се състои от четири компонента: идентификация на ресурси, HTTP глаголи, представяния и хипермедия
+Идентификация на ресурс: Всеки ресурс в REST API се идентифицира с помощта на уникален URI (Uniform Resource Identifier)
+HTTP глаголи: REST API използва HTTP глаголи (GET, POST, PUT, DELETE и т.н.) за извършване на операции върху ресурси.
+Представления: REST API използва различни представяния (JSON, XML и др.) за представяне на ресурси.
+Хипермедия: REST API използва хипермедия (връзки, URI и т.н.), за да позволи на клиентите да откриват и навигират ресурси.
+Като следва тези основни принципи, REST API гарантира, че уеб услугите са мащабируеми, гъвкави и лесни за поддръжка. Той също така предоставя стандартен начин за изграждане на уеб услуги, което улеснява потребителите да ги използват.
+
+2.	REST API използва JSON (JavaScript Object Notation) или XML (eXtensible Markup Language) формат за обмен на данни между клиенти и сървъри.
+JSON е лек и широко използван формат, който може лесно да бъде анализиран от повечето езици за програмиране, докато XML е по-подробен и структуриран формат, който може да се използва за по-сложни типове данни
+{
+  "id": 1,
+  "title": "Example post",
+  "content": "This is an example post.",
+  "author": {
+    "id": 1,
+    "name": "John Doe"
+  }
+}
+Този JSON обект представлява публикация в блог с ID 1, заглавие, съдържание и обект на автор, който съдържа ID и име на автора.
+<post>
+  <id>1</id>
+  <title>Example post</title>
+  <content>This is an example post.</content>
+  <author>
+    <id>1</id>
+    <name>John Doe</name>
+  </author>
+</post>
+
+3.	// Make an AJAX GET request
+$.ajax({
+  url: "/api/users",
+  method: "GET",
+  success: function(data) {
+    console.log(data);
+  },
+  error: function(jqXHR, textStatus, errorThrown) {
+    console.log("Error:", errorThrown);
+  }
+});
+
+// Make an AJAX POST request
+$.ajax({
+  url: "/api/users",
+  method: "POST",
+  data: { name: "John", age: 30 },
+  success: function(data) {
+    console.log(data);
+  },
+  error: function(jqXHR, textStatus, errorThrown) {
+    console.log("Error:", errorThrown);
+  }
+});
+
+// Make an AJAX PUT request
+$.ajax({
+  url: "/api/users/123",
+  method: "PUT",
+  data: { name: "John", age: 31 },
+  success: function(data) {
+    console.log(data);
+  },
+  error: function(jqXHR, textStatus, errorThrown) {
+    console.log("Error:", errorThrown);
+  }
+});
+// Make an AJAX DELETE request
+$.ajax({
+  url: "/api/users/123",
+  method: "DELETE",
+  success: function(data) {
+    console.log(data);
+  },
+  error: function(jqXHR, textStatus, errorThrown) {
+    console.log("Error:", errorThrown);
+  }
+});
+Този код използва метода $.ajax() на jQuery, за да прави заявки към REST API. Първият параметър е URL адресът на крайната точка на API, а параметърът на метода указва HTTP метода, който да се използва (GET, POST, PUT или DELETE).
+За GET заявки, функцията за успешно обратно извикване се извиква с данните, върнати от API като параметър. За POST, PUT и DELETE заявки параметърът data е данните, които да се изпратят към API.
+Ако има грешка, функцията за обратно извикване на грешка се извиква с три параметъра: обект jQuery XMLHttpRequest (jqXHR), низ, описващ вида на възникналата грешка (textStatus) и незадължителен обект за изключение (errorThrown).
+Имайте предвид, че този код използва jQuery, но можете да използвате и други JavaScript библиотеки или обикновен JavaScript, за да правите AJAX заявки към REST API.
